@@ -24,7 +24,7 @@ public interface RasterTransformer {
     /**
      * Defines how a pixel value will be transformed into another pixel value independently. This pixel value is combined integer representation
      * of RGBA values. One must split the pixel components before transforming them and join them before returning the value.
-     * Splitting can be done using {@code byte colors[] = ImgRaster.splitColors(pixel);}.
+     * Splitting can be done using {@code short colors[] = ImgRaster.splitColors(pixel);}.
      * Access Blue pixel as {@code colors[ImgRaster.BLUE_PIXEL]}.
      * Joining pixels can be done using {@code ImgRaster.joinColors(colors)} 
      * @param actualPixel actual pixel value.

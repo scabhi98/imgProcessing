@@ -17,6 +17,7 @@ public interface RasterReader {
      * @param file File pointer to the image file.
      * @throws IOException on IO error while reading data from the file.
      * @throws InterruptedException on interruption during while grabbing the image pixels.
+     * @return BufferedImage.TYPE* information about the image pixel encoding. For example {@code BufferedImage.TYPE_3BYTE_BGR}
      */
     default int read(ImgRaster raster, File file) throws IOException, InterruptedException {
         if(raster == null)

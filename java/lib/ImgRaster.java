@@ -165,34 +165,34 @@ public class ImgRaster implements Cloneable {
     }
 
     /**
-     * Represent the index of the red pixel in pixel value byte array returned by {@link #splitColors(int)} method.
+     * Represent the index of the red pixel in pixel value short array returned by {@link #splitColors(int)} method.
      */
-    public static final byte RED_PIXEL = 0;
+    public static final short RED_PIXEL = 0;
     /**
-     * Represent the index of the green pixel in pixel value byte array returned by {@link #splitColors(int)} method.
+     * Represent the index of the green pixel in pixel value short array returned by {@link #splitColors(int)} method.
      */
-    public static final byte GREEN_PIXEL = 1;
+    public static final short GREEN_PIXEL = 1;
     /**
-     * Represent the index of the blue pixel in pixel value byte array returned by {@link #splitColors(int)} method.
+     * Represent the index of the blue pixel in pixel value short array returned by {@link #splitColors(int)} method.
      */
-    public static final byte BLUE_PIXEL = 2;
+    public static final short BLUE_PIXEL = 2;
     /**
-     * Represent the index of the alpha pixel in pixel value byte array returned by {@link #splitColors(int)} method.
+     * Represent the index of the alpha pixel in pixel value short array returned by {@link #splitColors(int)} method.
      */
-    public static final byte ALPHA_PIXEL = 3;
+    public static final short ALPHA_PIXEL = 3;
     
     /**
      * Splits the integer pixel representation of a color pixel in RGB or RGBA format into its components
-     * pixel value byte array indexed by  {@link #RED_PIXEL}, {@link #GREEN_PIXEL}, {@link #BLUE_PIXEL} and {@link #ALPHA_PIXEL}
+     * pixel value short array indexed by  {@link #RED_PIXEL}, {@link #GREEN_PIXEL}, {@link #BLUE_PIXEL} and {@link #ALPHA_PIXEL}
      * @param pixel value to be splitted into components.
-     * @return the byte array consisting RGBA values.
+     * @return the short array consisting RGBA values.
      */
-    public static byte[] splitColors(int pixel){
-        byte colors[] = new byte[4];
-        colors[ALPHA_PIXEL] = (byte) ((pixel >> 24) & 0xff);
-        colors[RED_PIXEL] = (byte) ((pixel >> 16) & 0xff);
-        colors[GREEN_PIXEL] = (byte) ((pixel >> 8) & 0xff);
-        colors[BLUE_PIXEL] = (byte) (pixel & 0xff);
+    public static short[] splitColors(int pixel){
+        short colors[] = new short[4];
+        colors[ALPHA_PIXEL] = (short) ((pixel >> 24) & 0xff);
+        colors[RED_PIXEL] = (short) ((pixel >> 16) & 0xff);
+        colors[GREEN_PIXEL] = (short) ((pixel >> 8) & 0xff);
+        colors[BLUE_PIXEL] = (short) (pixel & 0xff);
         return colors;
     }
 
@@ -209,11 +209,11 @@ public class ImgRaster implements Cloneable {
     }
 
     /**
-     * Joins pixel component byte array splitted by {@link #splitColors(int)} into a single integer pixel representation.
-     * @param colors byte array containing splitted color pixels.
+     * Joins pixel component short array splitted by {@link #splitColors(int)} into a single integer pixel representation.
+     * @param colors short array containing splitted color pixels.
      * @return integer representation of joined pixel.
      */
-    static int joinColors(byte []colors) {
+    public static int joinColors(short []colors) {
         return (colors[ALPHA_PIXEL] << 24) | (colors[RED_PIXEL] << 16) | (colors[GREEN_PIXEL] << 8) | colors[BLUE_PIXEL];
     }
 }
